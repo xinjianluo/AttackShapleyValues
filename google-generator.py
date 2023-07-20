@@ -405,26 +405,3 @@ for model2Explain in ("NN", "RF", "GBDT", "SVM"):
         suffix = ""
         saveShapley(datasetName.capitalize(), dataType, model2Explain, shapArr, data2explain.numpy(), suffix)
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
