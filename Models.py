@@ -86,6 +86,4 @@ class FeatureInference_NN(nn.Module):
         x = self.Linear1(x)
         out = self.Output(x)
         return out      
-
-    
-        
+ 
