@@ -212,22 +212,3 @@ class SKLearnRegressorTrainer():
         l1loss = ( np.sqrt((testY.numpy() - yhat)**2) ).sum() / len(yhat)
         logging.critical("The averaging L1 loss of the trained %s is %s", self.modelType, l1loss)
         return self.model  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
