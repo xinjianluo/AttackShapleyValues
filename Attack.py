@@ -272,7 +272,4 @@ class AttackAverager():
         logging.critical("\n\nThe total success rate is: %s\n", (featureMask.sum() / (featureMask.shape[0]*featureMask.shape[1])).item()  )
         
         logging.critical("\n\n<----------------- Finished for this AttackAverager TEST ----------------->\n\n") 
-            
-        
-       
-        
+             
