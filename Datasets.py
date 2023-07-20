@@ -128,5 +128,3 @@ class FeatureInferenceDataset(Dataset):
     def __getitem__(self, index):
         return self.shaps[index], self.features[index]    
     
-    
-    
