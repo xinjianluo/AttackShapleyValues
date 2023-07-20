@@ -111,18 +111,4 @@ if __name__=='__main__':
             attackAverager.test()
     
     logging.critical("\n\n<----------------- ALL Finished ----------------->\n\n")
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        
