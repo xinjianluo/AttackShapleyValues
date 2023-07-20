@@ -1,3 +1,35 @@
+""" HOW to run this file (Updated on 28 July 2022, and compatibility issues may exist with the future releases of Google Cloud API)
+
+    1. Create a Google Cloud account 
+    2. APIs & Services -> Credentials
+    3. + CREATE CREDENTIALS -> Service account
+    4. Manage service account -> Actions -> Manage Keys -> Add Key -> Create new key (json) -> download keys and rename "my-service-acct.json"
+    5. Create a user-managed notebooks instance -> TensorFlow Enterprise 2.7/2.8/2.9 & Region (us-central1 Iowa) & Zone (us-central1-c)
+    6. Vertex -> Workbench -> User-managed Notebooks (Choose "Enable Notebooks API" if any) -> Start -> Open JupyterLab
+    7. Open new terminal -> 
+        (Suppose the Tensorflow version is 2.7.0)
+        % pip install --upgrade tensorflow==2.7.0
+        conda install pytorch cpuonly -c pytorch
+        pip install tensorflow_decision_forests --upgrade 
+            % This command may produce errors: module compiled against API version 0xe but this version of numpy is 0xd
+            pip install numpy --upgrade --ignore-installed
+        % pip install explainable-ai-sdk % Tensorflow with version >2.8 already contains this package
+    8. upload datasets, "google-generator.py" and "my-service-acct.json"
+    9. ! mkdir shaps 
+
+    ! mkdir bank 
+    ! mkdir bank/NN 
+    ! mkdir bank/RF
+    ! mkdir bank/GBDT 
+    ! mkdir bank/SVM 
+
+    10. python google-generator.py 
+    11. Archive and download the files:
+        zip -r shaps_synthesis_google shaps
+    12. Run the attack algorithms on local machines
+    
+"""
+
 import torch
 import torch.optim as optim
 from torchvision import datasets, transforms
@@ -38,7 +70,6 @@ def testModel(model, testX, testY):
   results = model.evaluate(testX.numpy(), testY.numpy()) 
   
 def export2cloud(model, datasetName, model2Explain):
-  # export_path = "gs://exp_gg_001/{}/{}".format(datasetName, model2Explain)
   export_path = "{}/{}".format(datasetName, model2Explain)
   model.save(export_path)    
   print("Saving model to", export_path, "finished!")
